@@ -51,7 +51,8 @@ function print(message) {
 }
 // generate a random number
 function generateRandom(anything) {
-    return Math.floor(Math.random() * anything.length)
+    random = Math.floor(Math.random() * anything.length)
+    return random
 }
 // random quote generator from the object
 function getRandomQuote() {
@@ -74,6 +75,14 @@ function ChangeColor() {
 // the main print quote function
 function printQuote() {
     var randomQuote = getRandomQuote();
+    var removeitems = arrayQ.pop(random);
+    var arrayOfRemoved = [];
+    arrayOfRemoved.push(removeitems);
+    
+
+    var arrayOfRemovedObject = arrayOfRemoved;
+    console.log(arrayOfRemovedObject);
+   
     ChangeColor();
     var theQuote = '<p class="quote">' + randomQuote.quote + '</p>';
     
@@ -85,7 +94,11 @@ function printQuote() {
     if (randomQuote.year !== undefined) {
         theQuote += '</span> <span class="year">' + randomQuote.year + '</span > </p>';
     }
+    if(randomQuote === undefined) {
+        randomQuote.push(arrayOfRemovedObject[random]);
+    }
+   
     print(theQuote);
 }
-// after 9.5 seconds the print quote function is called
-setInterval(printQuote,9500)
+//// after 9.5 seconds the print quote function is called
+//setInterval(printQuote,1500)
