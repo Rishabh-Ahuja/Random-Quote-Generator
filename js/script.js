@@ -75,7 +75,10 @@ function ChangeColor() {
 function printQuote() {
     var randomQuote = getRandomQuote();
     ChangeColor();
-    var theQuote = '<p class="quote">' + randomQuote.quote + '</p> <p class="source">' + randomQuote.source;
+    var theQuote = '<p class="quote">' + randomQuote.quote + '</p>';
+    
+    theQuote += '<p class="source">' + randomQuote.source;
+    
     if (randomQuote.citation !== undefined) {
         theQuote += '<span class = "citation" >' + randomQuote.citation + '</span>' ;
     } 
@@ -84,5 +87,5 @@ function printQuote() {
     }
     print(theQuote);
 }
-// after 4 seconds the print quote function is called
-//setInterval(printQuote,4000)
+// after 9.5 seconds the print quote function is called
+setInterval(printQuote,9500)
