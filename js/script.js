@@ -2,7 +2,8 @@
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 // creating a array of objects which will contain quotes
-var arrayQ = [
+var arrayQ;
+arrayQ = [
     {
         quote: "The material world is a dangerous place to be in. It's dangerous because there is a temptation of illusory energy; there is danger at every step."
         , source: "HH GOPAL KRISHNA GOSWAMI"
@@ -41,9 +42,15 @@ var arrayQ = [
     }, {
         quote: "Whatever we give to Krishna that will be remembered eternally, that will be appreciated eternally."
         , source: "HH GOPAL KRISHNA GOSWAMI"
-    },
+    }
 
 ];
+function check(array) {
+    if(array.length === 0) {
+        return true;
+    }
+    
+}
 // created a print function
 function print(message) {
     var output = document.getElementById('quote-box');
@@ -51,20 +58,20 @@ function print(message) {
 }
 // generate a random number
 function generateRandom(anything) {
-    random = Math.floor(Math.random() * anything.length)
+    random = Math.floor(Math.random() * anything.length);
     return random
 }
 // random quote generator from the object
 function getRandomQuote() {
     var quote = arrayQ[generateRandom(arrayQ)];
     return quote
-};
+}
 //generate a random color
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
     for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+        color += letters[Math.floor(Math.random() * letters.length)];
     }
     return color;
 }
@@ -73,16 +80,8 @@ function ChangeColor() {
     var buttonBackground = document.getElementById('loadQuote').style.background = changeBackground;
 }
 // the main print quote function
-function printQuote() {
+function printQuote(check) {
     var randomQuote = getRandomQuote();
-    var removeitems = arrayQ.pop(random);
-    var arrayOfRemoved = [];
-    arrayOfRemoved.push(removeitems);
-    
-
-    var arrayOfRemovedObject = arrayOfRemoved;
-    console.log(arrayOfRemovedObject);
-   
     ChangeColor();
     var theQuote = '<p class="quote">' + randomQuote.quote + '</p>';
     
@@ -94,10 +93,7 @@ function printQuote() {
     if (randomQuote.year !== undefined) {
         theQuote += '</span> <span class="year">' + randomQuote.year + '</span > </p>';
     }
-    if(randomQuote === undefined) {
-        randomQuote.push(arrayOfRemovedObject[random]);
-    }
-   
+
     print(theQuote);
 }
 //// after 9.5 seconds the print quote function is called
