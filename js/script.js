@@ -95,6 +95,7 @@ function printQuote() {
             theQuote += '</span> <span class="year">' + randomQuote.year + '</span > </p>';
         }
         print(theQuote);
+        // removing quotes (the problem)
         var removeItem;
         console.log(removeItem = arrayQ.splice(random));
     }
