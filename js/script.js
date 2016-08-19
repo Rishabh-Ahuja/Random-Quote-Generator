@@ -45,11 +45,12 @@ arrayQ = [
     }
 
 ];
+
 function check(array) {
-    if(array.length === 0) {
-        return true;
+    if (array.length === 0) {
+        return false;
     }
-    
+    else return true
 }
 // created a print function
 function print(message) {
@@ -75,26 +76,28 @@ function getRandomColor() {
     }
     return color;
 }
+
 function ChangeColor() {
     var changeBackground = document.body.style.background = getRandomColor();
     var buttonBackground = document.getElementById('loadQuote').style.background = changeBackground;
 }
 // the main print quote function
-function printQuote(check) {
+function printQuote() {
     var randomQuote = getRandomQuote();
     ChangeColor();
-    var theQuote = '<p class="quote">' + randomQuote.quote + '</p>';
-    
-    theQuote += '<p class="source">' + randomQuote.source;
-    
-    if (randomQuote.citation !== undefined) {
-        theQuote += '<span class = "citation" >' + randomQuote.citation + '</span>' ;
-    } 
-    if (randomQuote.year !== undefined) {
-        theQuote += '</span> <span class="year">' + randomQuote.year + '</span > </p>';
+    if (check(arrayQ)) {
+        var theQuote = '<p class="quote">' + randomQuote.quote + '</p>';
+        theQuote += '<p class="source">' + randomQuote.source;
+        if (randomQuote.citation !== undefined) {
+            theQuote += '<span class = "citation" >' + randomQuote.citation + '</span>';
+        }
+        if (randomQuote.year !== undefined) {
+            theQuote += '</span> <span class="year">' + randomQuote.year + '</span > </p>';
+        }
+        print(theQuote);
+        var removeItem;
+        console.log(removeItem = arrayQ.splice(random));
     }
-
-    print(theQuote);
 }
 //// after 9.5 seconds the print quote function is called
 //setInterval(printQuote,1500)
