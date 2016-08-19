@@ -95,10 +95,15 @@ function printQuote() {
             theQuote += '</span> <span class="year">' + randomQuote.year + '</span > </p>';
         }
         print(theQuote);
-        // removing quotes (the problem)
+        
+        // THE PROBLEM
         var removeItem;
-        console.log(removeItem = arrayQ.splice(random));
+        removeItem = arrayQ.splice(random,1);
+        var addItem = [];
+        addItem.push(removeItem);
+        console.log(addItem);
     }
+    else addItem = arrayQ;
 }
 //// after 9.5 seconds the print quote function is called
 //setInterval(printQuote,1500)
